@@ -1,39 +1,41 @@
 import { Card } from "@/components/ui/card";
 import { Code2, Database, Cloud, Brain } from "lucide-react";
-
-const skillCategories = [
-  {
-    title: "Langages",
-    icon: Code2,
-    skills: ["C/C++", "Python", "Java", "JavaScript", "TypeScript", "PHP", "C#"],
-  },
-  {
-    title: "Technologies Web",
-    icon: Cloud,
-    skills: ["HTML/CSS", "Bootstrap", "ReactJS", "Next.js", "NestJS", "Node.js", "Spring Boot"],
-  },
-  {
-    title: "Bases de Données",
-    icon: Database,
-    skills: ["SQL", "PostgreSQL", "MongoDB", "SQL Server", "ChromaDB"],
-  },
-  {
-    title: "Architecture & IA",
-    icon: Brain,
-    skills: ["Microservices", "Docker", "Kubernetes", "RAG", "DevOps", "AI/ML"],
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Skills = () => {
+  const { t } = useLanguage();
+
+  const skillCategories = [
+    {
+      title: t("skills.languages"),
+      icon: Code2,
+      skills: ["C/C++", "Python", "Java", "JavaScript", "TypeScript", "PHP", "C#"],
+    },
+    {
+      title: t("skills.web"),
+      icon: Cloud,
+      skills: ["HTML/CSS", "Bootstrap", "ReactJS", "Next.js", "NestJS", "Node.js", "Spring Boot"],
+    },
+    {
+      title: t("skills.database"),
+      icon: Database,
+      skills: ["SQL", "PostgreSQL", "MongoDB", "SQL Server", "ChromaDB"],
+    },
+    {
+      title: t("skills.architecture"),
+      icon: Brain,
+      skills: ["Microservices", "Docker", "Kubernetes", "RAG", "DevOps", "AI/ML"],
+    },
+  ];
   return (
     <section id="skills" className="py-20 px-4">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Compétences <span className="text-tech-cyan">Techniques</span>
+            {t("skills.title")} <span className="text-tech-cyan">{t("skills.subtitle")}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Technologies et outils que je maîtrise
+            {t("skills.description")}
           </p>
         </div>
 

@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
 
 const Navigation = () => {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -22,12 +26,12 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { id: "home", label: "Accueil" },
-    { id: "projects", label: "Projets" },
-    { id: "experience", label: "Expérience" },
-    { id: "skills", label: "Compétences" },
-    { id: "education", label: "Formation" },
-    { id: "contact", label: "Contact" },
+    { id: "home", label: t("nav.home") },
+    { id: "projects", label: t("nav.projects") },
+    { id: "experience", label: t("nav.experience") },
+    { id: "skills", label: t("nav.skills") },
+    { id: "education", label: t("nav.education") },
+    { id: "contact", label: t("nav.contact") },
   ];
 
   return (
@@ -46,7 +50,7 @@ const Navigation = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -56,15 +60,23 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
+            <div className="flex items-center gap-3 ml-4">
+              <ThemeToggle />
+              <LanguageToggle />
+            </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden p-2 hover:bg-surface-light rounded-lg transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          {/* Mobile Controls */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <LanguageToggle />
+            <button 
+              className="p-2 hover:bg-surface-light rounded-lg transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

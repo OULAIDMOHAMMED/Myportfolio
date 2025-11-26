@@ -1,37 +1,62 @@
 import { Card } from "@/components/ui/card";
 import { GraduationCap } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const education = [
-  {
-    degree: "Cycle d'Ingénieur en Génie Informatique",
-    specialization: "Génie Logiciel & Business Intelligence",
-    year: "2022 - 2025",
-    description: "Formation avancée en développement logiciel, architecture système, intelligence artificielle et analyse de données.",
-  },
-  {
-    degree: "DEUST",
-    specialization: "Informatique",
-    year: "2020 - 2022",
-    description: "Diplôme d'études universitaires scientifiques et techniques en informatique.",
-  },
-  {
-    degree: "Baccalauréat",
-    specialization: "Sciences",
-    year: "2020",
-    description: "Baccalauréat scientifique avec mention.",
-  },
-];
+const educationData = {
+  fr: [
+    {
+      degree: "Cycle d'Ingénieur en Génie Informatique",
+      specialization: "Génie Logiciel & Business Intelligence",
+      year: "2022 - 2025",
+      description: "Formation avancée en développement logiciel, architecture système, intelligence artificielle et analyse de données.",
+    },
+    {
+      degree: "DEUST",
+      specialization: "Informatique",
+      year: "2020 - 2022",
+      description: "Diplôme d'études universitaires scientifiques et techniques en informatique.",
+    },
+    {
+      degree: "Baccalauréat",
+      specialization: "Sciences",
+      year: "2020",
+      description: "Baccalauréat scientifique avec mention.",
+    },
+  ],
+  en: [
+    {
+      degree: "Engineering Degree in Computer Science",
+      specialization: "Software Engineering & Business Intelligence",
+      year: "2022 - 2025",
+      description: "Advanced training in software development, system architecture, artificial intelligence and data analysis.",
+    },
+    {
+      degree: "DEUST",
+      specialization: "Computer Science",
+      year: "2020 - 2022",
+      description: "University degree in scientific and technical studies in computer science.",
+    },
+    {
+      degree: "High School Diploma",
+      specialization: "Sciences",
+      year: "2020",
+      description: "Scientific high school diploma with honors.",
+    },
+  ],
+};
 
 const Education = () => {
+  const { t, language } = useLanguage();
+  const education = educationData[language];
   return (
     <section id="education" className="py-20 px-4 bg-surface">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-tech-cyan">Formation</span> Académique
+            <span className="text-tech-cyan">{t("education.title")}</span> {t("education.subtitle")}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Mon parcours éducatif
+            {t("education.description")}
           </p>
         </div>
 

@@ -1,38 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Phone, Download } from "lucide-react";
 import profileImage from "@/assets/profile.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-4 py-20">
       <div className="container max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 text-center md:text-left">
+          <div className="space-y-6 text-center md:text-left animate-fade-in">
             <div className="space-y-2">
-              <p className="text-tech-cyan text-lg font-medium">Bonjour, je suis</p>
+              <p className="text-tech-cyan text-lg font-medium">{t("hero.greeting")}</p>
               <h1 className="text-5xl md:text-6xl font-bold">
                 Oulaid <span className="text-tech-cyan">Mohammed</span>
               </h1>
               <h2 className="text-2xl md:text-3xl text-muted-foreground">
-                Ingénieur en Génie Informatique
+                {t("hero.title")}
               </h2>
             </div>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Étudiant en 3ème année de cycle d'ingénieur, spécialisé en{" "}
-              <span className="text-tech-cyan font-semibold">Génie Logiciel</span> et{" "}
-              <span className="text-tech-cyan font-semibold">Business Intelligence</span>.
-              Passionné par le développement Backend, Full-Stack et l'IA.
+              {t("hero.description")}{" "}
+              <span className="text-tech-cyan font-semibold">{t("hero.specialization1")}</span> {t("hero.specialization2") !== "Business Intelligence" ? t("hero.specialization2").toLowerCase() : `et ${t("hero.specialization2")}`}.{" "}
+              {t("hero.passion")}
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <Button size="lg" className="bg-gradient-primary hover:shadow-glow transition-all">
                 <Mail className="mr-2 h-5 w-5" />
-                Me Contacter
+                {t("hero.contact")}
               </Button>
               <Button size="lg" variant="secondary">
                 <Download className="mr-2 h-5 w-5" />
-                Télécharger CV
+                {t("hero.download")}
               </Button>
             </div>
 

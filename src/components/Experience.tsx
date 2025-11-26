@@ -1,34 +1,70 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Briefcase, Calendar } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const experiences = [
-  {
-    company: "XAI",
-    role: "AI Developer / xDevOps",
-    period: "2024",
-    description: "Développement de solutions d'intelligence artificielle avancées avec implémentation de RAG (Retrieval Augmented Generation), intégration de ChromaDB pour la gestion vectorielle, et création d'applications full-stack avec Next.js et PostgreSQL.",
-    technologies: ["RAG", "ChromaDB", "PostgreSQL", "Next.js", "Python", "AI", "DevOps"],
-  },
-  {
-    company: "Architeo",
-    role: "Développeur Backend Java/Python",
-    period: "2023",
-    description: "Conception et développement d'architectures microservices scalables. Implémentation de services backend robustes avec Java et Python, gestion des bases de données, et intégration d'APIs RESTful pour des applications d'entreprise.",
-    technologies: ["Java", "Python", "Microservices", "Spring Boot", "Docker", "REST APIs"],
-  },
-];
+const experiencesData = {
+  fr: [
+    {
+      company: "XAI",
+      role: "AI Developer / xDevOps",
+      period: "2024",
+      description: "Développement de solutions d'intelligence artificielle avancées avec implémentation de RAG (Retrieval Augmented Generation), intégration de ChromaDB pour la gestion vectorielle, et création d'applications full-stack avec Next.js et PostgreSQL.",
+      technologies: ["RAG", "ChromaDB", "PostgreSQL", "Next.js", "Python", "AI", "DevOps"],
+    },
+    {
+      company: "Wimtek",
+      role: "Développeur Full-Stack",
+      period: "2023",
+      description: "Développement d'applications web complètes avec des technologies modernes. Conception et implémentation de solutions frontend et backend, intégration d'APIs, et optimisation des performances applicatives.",
+      technologies: ["React", "Node.js", "TypeScript", "MongoDB", "REST APIs"],
+    },
+    {
+      company: "Architeo",
+      role: "Développeur Backend Java/Python",
+      period: "2022-2023",
+      description: "Conception et développement d'architectures microservices scalables. Implémentation de services backend robustes avec Java et Python, gestion des bases de données, et intégration d'APIs RESTful pour des applications d'entreprise.",
+      technologies: ["Java", "Python", "Microservices", "Spring Boot", "Docker", "REST APIs"],
+    },
+  ],
+  en: [
+    {
+      company: "XAI",
+      role: "AI Developer / xDevOps",
+      period: "2024",
+      description: "Development of advanced artificial intelligence solutions with RAG (Retrieval Augmented Generation) implementation, ChromaDB integration for vector management, and creation of full-stack applications with Next.js and PostgreSQL.",
+      technologies: ["RAG", "ChromaDB", "PostgreSQL", "Next.js", "Python", "AI", "DevOps"],
+    },
+    {
+      company: "Wimtek",
+      role: "Full-Stack Developer",
+      period: "2023",
+      description: "Development of complete web applications with modern technologies. Design and implementation of frontend and backend solutions, API integration, and application performance optimization.",
+      technologies: ["React", "Node.js", "TypeScript", "MongoDB", "REST APIs"],
+    },
+    {
+      company: "Architeo",
+      role: "Backend Developer Java/Python",
+      period: "2022-2023",
+      description: "Design and development of scalable microservices architectures. Implementation of robust backend services with Java and Python, database management, and RESTful API integration for enterprise applications.",
+      technologies: ["Java", "Python", "Microservices", "Spring Boot", "Docker", "REST APIs"],
+    },
+  ],
+};
 
 const Experience = () => {
+  const { t, language } = useLanguage();
+  const experiences = experiencesData[language];
+
   return (
     <section id="experience" className="py-20 px-4 bg-surface">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Mon <span className="text-tech-cyan">Expérience</span>
+            {t("experience.title")} <span className="text-tech-cyan">{t("experience.subtitle")}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Parcours professionnel en développement Backend et IA
+            {t("experience.description")}
           </p>
         </div>
 
