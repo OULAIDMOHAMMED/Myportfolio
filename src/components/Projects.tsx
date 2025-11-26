@@ -2,8 +2,10 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const projects = [
+const projectsData = {
+  fr: [
   {
     title: "Système de Gestion RH Intelligent",
     description: "Application complète de gestion des ressources humaines avec intelligence artificielle pour l'automatisation des processus RH, la gestion des employés et l'analyse prédictive.",
@@ -25,18 +27,44 @@ const projects = [
     github: "#",
     demo: "#",
   },
-];
+],
+en: [
+  {
+    title: "Intelligent HR Management System",
+    description: "Complete human resources management application with artificial intelligence for HR process automation, employee management and predictive analysis.",
+    technologies: ["NestJS", "Spring Boot", "Java", "PostgreSQL", "Docker", "Microservices"],
+    github: "#",
+    demo: "#",
+  },
+  {
+    title: "xDevOps Platform with RAG",
+    description: "Advanced DevOps solution integrating RAG (Retrieval Augmented Generation) for documentation improvement and automated development processes.",
+    technologies: ["Next.js", "Python", "RAG", "ChromaDB", "PostgreSQL", "AI"],
+    github: "#",
+    demo: "#",
+  },
+  {
+    title: "Backend Microservices Architecture",
+    description: "Scalable backend infrastructure built with microservices, including authentication, data management and RESTful APIs.",
+    technologies: ["Java", "Python", "Spring Boot", "Docker", "Kubernetes", "MongoDB"],
+    github: "#",
+    demo: "#",
+  },
+],
+};
 
 const Projects = () => {
+  const { t, language } = useLanguage();
+  const projects = projectsData[language];
   return (
     <section id="projects" className="py-20 px-4">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Mes <span className="text-tech-cyan">Projets</span>
+            {t("projects.title")} <span className="text-tech-cyan">{t("projects.subtitle")}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Découvrez mes réalisations en développement Backend, Full-Stack et IA
+            {t("projects.description")}
           </p>
         </div>
 
@@ -76,7 +104,7 @@ const Projects = () => {
                   >
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <Github className="mr-2 h-4 w-4" />
-                      Code
+                      {t("projects.code")}
                     </a>
                   </Button>
                   <Button 
@@ -86,7 +114,7 @@ const Projects = () => {
                   >
                     <a href={project.demo} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4" />
-                      Demo
+                      {t("projects.demo")}
                     </a>
                   </Button>
                 </div>
