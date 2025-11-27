@@ -20,11 +20,11 @@ const experiencesData = {
       technologies: ["React", "Node.js", "TypeScript", "MongoDB", "REST APIs"],
     },
     {
-      company: "Bisoft",
-      role: "Développeur Web",
-      period: "2022",
-      description: "Développement de solutions web et intégration de systèmes. Participation à la conception et au développement d'applications web, maintenance et amélioration de fonctionnalités existantes.",
-      technologies: ["PHP", "JavaScript", "MySQL", "HTML", "CSS", "Bootstrap"],
+      company: "Bisoft Engineering Club",
+      role: "Responsable Média (Media Manager)",
+      period: "Février 2024 - Présent",
+      description: "Gestion de la communication digitale et des médias du club. Création de contenu visuel, gestion des réseaux sociaux et coordination des événements médiatiques.",
+      technologies: ["Communication", "Design", "Social Media", "Gestion de projet"],
     },
     {
       company: "Architeo",
@@ -50,11 +50,11 @@ const experiencesData = {
       technologies: ["React", "Node.js", "TypeScript", "MongoDB", "REST APIs"],
     },
     {
-      company: "Bisoft",
-      role: "Web Developer",
-      period: "2022",
-      description: "Web solution development and system integration. Participation in web application design and development, maintenance and improvement of existing features.",
-      technologies: ["PHP", "JavaScript", "MySQL", "HTML", "CSS", "Bootstrap"],
+      company: "Bisoft Engineering Club",
+      role: "Media Manager",
+      period: "February 2024 - Present",
+      description: "Digital communication and media management for the club. Visual content creation, social media management and coordination of media events.",
+      technologies: ["Communication", "Design", "Social Media", "Project Management"],
     },
     {
       company: "Architeo",
