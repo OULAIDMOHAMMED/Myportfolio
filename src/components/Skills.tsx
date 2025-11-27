@@ -1,4 +1,4 @@
-import { Code2, Database, Cloud, Brain, ChevronDown } from "lucide-react";
+import { Code2, Database, Cloud, Brain } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -13,7 +13,7 @@ import { FaJava, FaDatabase, FaBrain, FaServer, FaRobot, FaCogs } from "react-ic
 
 const Skills = () => {
   const { t } = useLanguage();
-  const [openCategory, setOpenCategory] = useState<number | null>(0);
+  const [activeCategory, setActiveCategory] = useState(0);
 
   const skillCategories = [
     {
@@ -68,10 +68,6 @@ const Skills = () => {
     },
   ];
 
-  const toggleCategory = (index: number) => {
-    setOpenCategory(openCategory === index ? null : index);
-  };
-
   return (
     <section id="skills" className="py-20 px-4">
       <div className="container max-w-4xl mx-auto">
@@ -84,70 +80,55 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="space-y-4">
+        {/* Menu des catégories */}
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-10">
           {skillCategories.map((category, index) => {
             const Icon = category.icon;
-            const isOpen = openCategory === index;
+            const isActive = activeCategory === index;
             
             return (
-              <div 
+              <button
                 key={index}
-                className="bg-card border border-border rounded-xl overflow-hidden hover:border-tech-cyan/50 transition-all"
+                onClick={() => setActiveCategory(index)}
+                className={cn(
+                  "flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-300",
+                  isActive 
+                    ? "bg-gradient-primary text-background shadow-glow" 
+                    : "bg-card border border-border hover:border-tech-cyan/50 text-foreground"
+                )}
               >
-                <button
-                  onClick={() => toggleCategory(index)}
-                  className="w-full p-6 flex items-center justify-between group cursor-pointer"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-gradient-primary rounded-lg group-hover:shadow-glow transition-all">
-                      <Icon className="h-6 w-6 text-background" />
-                    </div>
-                    <h3 className="text-xl md:text-2xl font-bold group-hover:text-tech-cyan transition-colors">
-                      {category.title}
-                    </h3>
-                    <span className="text-muted-foreground text-sm">
-                      ({category.skills.length})
-                    </span>
-                  </div>
-                  <ChevronDown 
-                    className={cn(
-                      "h-6 w-6 text-muted-foreground transition-transform duration-300",
-                      isOpen && "rotate-180"
-                    )}
-                  />
-                </button>
-
-                <div
-                  className={cn(
-                    "overflow-hidden transition-all duration-300 ease-in-out",
-                    isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-                  )}
-                >
-                  <div className="px-6 pb-6">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                      {category.skills.map((skill, skillIndex) => {
-                        const SkillIcon = skill.icon;
-                        return (
-                          <div
-                            key={skillIndex}
-                            className="flex flex-col items-center gap-2 p-4 bg-surface-light rounded-xl hover:bg-tech-cyan/10 hover:border-tech-cyan border border-transparent transition-all cursor-default group/skill"
-                          >
-                            <SkillIcon 
-                              className="h-10 w-10 transition-transform group-hover/skill:scale-110" 
-                              style={{ color: skill.color }}
-                            />
-                            <span className="text-sm font-medium text-center">
-                              {skill.name}
-                            </span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <Icon className="h-5 w-5" />
+                <span className="hidden sm:inline">{category.title}</span>
+              </button>
             );
           })}
+        </div>
+
+        {/* Contenu des skills */}
+        <div className="bg-card border border-border rounded-2xl p-6 md:p-8 min-h-[300px]">
+          <h3 className="text-2xl font-bold mb-6 text-center text-tech-cyan">
+            {skillCategories[activeCategory].title}
+          </h3>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 animate-fade-in">
+            {skillCategories[activeCategory].skills.map((skill, skillIndex) => {
+              const SkillIcon = skill.icon;
+              return (
+                <div
+                  key={skillIndex}
+                  className="flex flex-col items-center gap-3 p-5 bg-surface-light rounded-xl hover:bg-tech-cyan/10 border border-transparent hover:border-tech-cyan transition-all duration-300 cursor-default group"
+                >
+                  <SkillIcon 
+                    className="h-12 w-12 transition-transform duration-300 group-hover:scale-110" 
+                    style={{ color: skill.color }}
+                  />
+                  <span className="text-sm font-medium text-center">
+                    {skill.name}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
