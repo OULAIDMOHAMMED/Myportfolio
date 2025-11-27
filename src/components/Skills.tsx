@@ -14,6 +14,16 @@ import { FaJava, FaDatabase, FaBrain, FaServer, FaRobot, FaCogs } from "react-ic
 const Skills = () => {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const handleCategoryChange = (index: number) => {
+    if (index === activeCategory) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveCategory(index);
+      setIsTransitioning(false);
+    }, 200);
+  };
 
   const skillCategories = [
     {
@@ -89,7 +99,7 @@ const Skills = () => {
             return (
               <button
                 key={index}
-                onClick={() => setActiveCategory(index)}
+                onClick={() => handleCategoryChange(index)}
                 className={cn(
                   "flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-300",
                   isActive 
@@ -106,28 +116,35 @@ const Skills = () => {
 
         {/* Contenu des skills */}
         <div className="bg-card border border-border rounded-2xl p-6 md:p-8 min-h-[300px]">
-          <h3 className="text-2xl font-bold mb-6 text-center text-tech-cyan">
-            {skillCategories[activeCategory].title}
-          </h3>
-          
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 animate-fade-in">
-            {skillCategories[activeCategory].skills.map((skill, skillIndex) => {
-              const SkillIcon = skill.icon;
-              return (
-                <div
-                  key={skillIndex}
-                  className="flex flex-col items-center gap-3 p-5 bg-surface-light rounded-xl hover:bg-tech-cyan/10 border border-transparent hover:border-tech-cyan transition-all duration-300 cursor-default group"
-                >
-                  <SkillIcon 
-                    className="h-12 w-12 transition-transform duration-300 group-hover:scale-110" 
-                    style={{ color: skill.color }}
-                  />
-                  <span className="text-sm font-medium text-center">
-                    {skill.name}
-                  </span>
-                </div>
-              );
-            })}
+          <div 
+            className={cn(
+              "transition-all duration-200 ease-in-out",
+              isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100"
+            )}
+          >
+            <h3 className="text-2xl font-bold mb-6 text-center text-tech-cyan">
+              {skillCategories[activeCategory].title}
+            </h3>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              {skillCategories[activeCategory].skills.map((skill, skillIndex) => {
+                const SkillIcon = skill.icon;
+                return (
+                  <div
+                    key={skillIndex}
+                    className="flex flex-col items-center gap-3 p-5 bg-surface-light rounded-xl hover:bg-tech-cyan/10 border border-transparent hover:border-tech-cyan transition-all duration-300 cursor-default group"
+                  >
+                    <SkillIcon 
+                      className="h-12 w-12 transition-transform duration-300 group-hover:scale-110" 
+                      style={{ color: skill.color }}
+                    />
+                    <span className="text-sm font-medium text-center">
+                      {skill.name}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
