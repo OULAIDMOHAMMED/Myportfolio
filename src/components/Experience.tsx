@@ -20,6 +20,13 @@ const experiencesData = {
       technologies: ["React", "Node.js", "TypeScript", "MongoDB", "REST APIs"],
     },
     {
+      company: "Bisoft",
+      role: "Développeur Web",
+      period: "2022",
+      description: "Développement de solutions web et intégration de systèmes. Participation à la conception et au développement d'applications web, maintenance et amélioration de fonctionnalités existantes.",
+      technologies: ["PHP", "JavaScript", "MySQL", "HTML", "CSS", "Bootstrap"],
+    },
+    {
       company: "Architeo",
       role: "Développeur Backend Java/Python",
       period: "2022-2023",
@@ -41,6 +48,13 @@ const experiencesData = {
       period: "2023",
       description: "Development of complete web applications with modern technologies. Design and implementation of frontend and backend solutions, API integration, and application performance optimization.",
       technologies: ["React", "Node.js", "TypeScript", "MongoDB", "REST APIs"],
+    },
+    {
+      company: "Bisoft",
+      role: "Web Developer",
+      period: "2022",
+      description: "Web solution development and system integration. Participation in web application design and development, maintenance and improvement of existing features.",
+      technologies: ["PHP", "JavaScript", "MySQL", "HTML", "CSS", "Bootstrap"],
     },
     {
       company: "Architeo",
