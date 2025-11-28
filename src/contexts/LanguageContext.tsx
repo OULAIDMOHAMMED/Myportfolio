@@ -35,6 +35,8 @@ const translations = {
     "projects.description": "Découvrez mes réalisations en développement Backend, Full-Stack et IA",
     "projects.code": "Code",
     "projects.demo": "Demo",
+    "projects.showMore": "Voir plus de projets",
+    "projects.showLess": "Voir moins",
     
     // Experience
     "experience.title": "Mon",
@@ -103,6 +105,8 @@ const translations = {
     "projects.description": "Discover my achievements in Backend, Full-Stack and AI development",
     "projects.code": "Code",
     "projects.demo": "Demo",
+    "projects.showMore": "Show more projects",
+    "projects.showLess": "Show less",
     
     // Experience
     "experience.title": "My",

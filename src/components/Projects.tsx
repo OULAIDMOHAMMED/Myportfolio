@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ChevronDown, ChevronUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import AnimatedSection from "./AnimatedSection";
 
@@ -110,9 +111,15 @@ const projectsData = {
   ],
 };
 
+const INITIAL_PROJECTS_COUNT = 3;
+
 const Projects = () => {
   const { t, language } = useLanguage();
+  const [showAll, setShowAll] = useState(false);
   const projects = projectsData[language];
+  const displayedProjects = showAll ? projects : projects.slice(0, INITIAL_PROJECTS_COUNT);
+  const hasMoreProjects = projects.length > INITIAL_PROJECTS_COUNT;
+
   return (
     <section id="projects" className="py-20 px-4">
       <div className="container max-w-6xl mx-auto">
@@ -126,7 +133,7 @@ const Projects = () => {
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <AnimatedSection 
               key={index} 
               animation="fade-up" 
@@ -184,6 +191,29 @@ const Projects = () => {
             </AnimatedSection>
           ))}
         </div>
+
+        {hasMoreProjects && (
+          <AnimatedSection animation="fade-up" className="flex justify-center mt-10">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowAll(!showAll)}
+              className="border-tech-cyan/50 hover:bg-tech-cyan hover:text-background transition-all group"
+            >
+              {showAll ? (
+                <>
+                  {t("projects.showLess")}
+                  <ChevronUp className="ml-2 h-5 w-5 group-hover:animate-bounce" />
+                </>
+              ) : (
+                <>
+                  {t("projects.showMore")} ({projects.length - INITIAL_PROJECTS_COUNT})
+                  <ChevronDown className="ml-2 h-5 w-5 group-hover:animate-bounce" />
+                </>
+              )}
+            </Button>
+          </AnimatedSection>
+        )}
       </div>
     </section>
   );
