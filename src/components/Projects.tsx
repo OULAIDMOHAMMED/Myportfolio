@@ -7,51 +7,51 @@ import AnimatedSection from "./AnimatedSection";
 
 const projectsData = {
   fr: [
-  {
-    title: "Système de Gestion RH Intelligent",
-    description: "Application complète de gestion des ressources humaines avec intelligence artificielle pour l'automatisation des processus RH, la gestion des employés et l'analyse prédictive.",
-    technologies: ["NestJS", "Spring Boot", "Java", "PostgreSQL", "Docker", "Microservices"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "Plateforme xDevOps avec RAG",
-    description: "Solution DevOps avancée intégrant RAG (Retrieval Augmented Generation) pour l'amélioration de la documentation et des processus de développement automatisés.",
-    technologies: ["Next.js", "Python", "RAG", "ChromaDB", "PostgreSQL", "AI"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "Architecture Microservices Backend",
-    description: "Infrastructure backend scalable construite avec des microservices, comprenant l'authentification, la gestion des données et les API RESTful.",
-    technologies: ["Java", "Python", "Spring Boot", "Docker", "Kubernetes", "MongoDB"],
-    github: "#",
-    demo: "#",
-  },
-],
-en: [
-  {
-    title: "Intelligent HR Management System",
-    description: "Complete human resources management application with artificial intelligence for HR process automation, employee management and predictive analysis.",
-    technologies: ["NestJS", "Spring Boot", "Java", "PostgreSQL", "Docker", "Microservices"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "xDevOps Platform with RAG",
-    description: "Advanced DevOps solution integrating RAG (Retrieval Augmented Generation) for documentation improvement and automated development processes.",
-    technologies: ["Next.js", "Python", "RAG", "ChromaDB", "PostgreSQL", "AI"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "Backend Microservices Architecture",
-    description: "Scalable backend infrastructure built with microservices, including authentication, data management and RESTful APIs.",
-    technologies: ["Java", "Python", "Spring Boot", "Docker", "Kubernetes", "MongoDB"],
-    github: "#",
-    demo: "#",
-  },
-],
+    {
+      title: "Système de Gestion RH Intelligent",
+      description: "Système de gestion RH intelligent automatisant les processus, suivi des employés et gestion des performances avec une architecture moderne.",
+      technologies: ["NestJS", "TypeScript", "PostgreSQL", "Docker"],
+      github: "https://github.com/OULAIDMOHAMMED/THE-NEXT-GENERATION-OF-SMART-HRMS",
+      demo: "#",
+    },
+    {
+      title: "Système de Gestion de Pharmacie",
+      description: "Système de gestion de pharmacie automatisant stocks/ventes, interface Swing avec base de données et intégration d'un chatbot intelligent.",
+      technologies: ["Java", "Swing", "MySQL", "Chatbot"],
+      github: "https://github.com/OULAIDMOHAMMED/PHARMACY-MANAGEMENT",
+      demo: "#",
+    },
+    {
+      title: "Site E-commerce",
+      description: "Développement d'un site e-commerce complet avec gestion des produits, commandes et utilisateurs, architecture backend robuste.",
+      technologies: ["Spring Boot", "Java", "PostgreSQL", "REST API"],
+      github: "#",
+      demo: "#",
+    },
+  ],
+  en: [
+    {
+      title: "Intelligent HR Management System",
+      description: "Smart HR management system automating processes, employee tracking and performance management with modern architecture.",
+      technologies: ["NestJS", "TypeScript", "PostgreSQL", "Docker"],
+      github: "https://github.com/OULAIDMOHAMMED/THE-NEXT-GENERATION-OF-SMART-HRMS",
+      demo: "#",
+    },
+    {
+      title: "Pharmacy Management System",
+      description: "Pharmacy management system automating inventory/sales, Swing interface with database and intelligent chatbot integration.",
+      technologies: ["Java", "Swing", "MySQL", "Chatbot"],
+      github: "https://github.com/OULAIDMOHAMMED/PHARMACY-MANAGEMENT",
+      demo: "#",
+    },
+    {
+      title: "E-commerce Website",
+      description: "Complete e-commerce website development with product, order and user management, robust backend architecture.",
+      technologies: ["Spring Boot", "Java", "PostgreSQL", "REST API"],
+      github: "#",
+      demo: "#",
+    },
+  ],
 };
 
 const Projects = () => {
