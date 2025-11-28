@@ -10,6 +10,7 @@ import {
 } from "react-icons/si";
 import { TbBrandCSharp, TbSql } from "react-icons/tb";
 import { FaJava, FaDatabase, FaBrain, FaServer, FaRobot, FaCogs } from "react-icons/fa";
+import AnimatedSection from "./AnimatedSection";
 
 const Skills = () => {
   const { t } = useLanguage();
@@ -81,72 +82,76 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 px-4">
       <div className="container max-w-4xl mx-auto">
-        <div className="text-center mb-16">
+        <AnimatedSection animation="fade-up" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             {t("skills.title")} <span className="text-tech-cyan">{t("skills.subtitle")}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {t("skills.description")}
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Menu des catégories */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-10">
-          {skillCategories.map((category, index) => {
-            const Icon = category.icon;
-            const isActive = activeCategory === index;
-            
-            return (
-              <button
-                key={index}
-                onClick={() => handleCategoryChange(index)}
-                className={cn(
-                  "flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-300",
-                  isActive 
-                    ? "bg-gradient-primary text-background shadow-glow" 
-                    : "bg-card border border-border hover:border-tech-cyan/50 text-foreground"
-                )}
-              >
-                <Icon className="h-5 w-5" />
-                <span className="hidden sm:inline">{category.title}</span>
-              </button>
-            );
-          })}
-        </div>
+        <AnimatedSection animation="fade-up" delay={100}>
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-10">
+            {skillCategories.map((category, index) => {
+              const Icon = category.icon;
+              const isActive = activeCategory === index;
+              
+              return (
+                <button
+                  key={index}
+                  onClick={() => handleCategoryChange(index)}
+                  className={cn(
+                    "flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-300",
+                    isActive 
+                      ? "bg-gradient-primary text-background shadow-glow" 
+                      : "bg-card border border-border hover:border-tech-cyan/50 text-foreground"
+                  )}
+                >
+                  <Icon className="h-5 w-5" />
+                  <span className="hidden sm:inline">{category.title}</span>
+                </button>
+              );
+            })}
+          </div>
+        </AnimatedSection>
 
         {/* Contenu des skills */}
-        <div className="bg-card border border-border rounded-2xl p-6 md:p-8 min-h-[300px]">
-          <div 
-            className={cn(
-              "transition-all duration-200 ease-in-out",
-              isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100"
-            )}
-          >
-            <h3 className="text-2xl font-bold mb-6 text-center text-tech-cyan">
-              {skillCategories[activeCategory].title}
-            </h3>
-            
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              {skillCategories[activeCategory].skills.map((skill, skillIndex) => {
-                const SkillIcon = skill.icon;
-                return (
-                  <div
-                    key={skillIndex}
-                    className="flex flex-col items-center gap-3 p-5 bg-surface-light rounded-xl hover:bg-tech-cyan/10 border border-transparent hover:border-tech-cyan transition-all duration-300 cursor-default group"
-                  >
-                    <SkillIcon 
-                      className="h-12 w-12 transition-transform duration-300 group-hover:scale-110" 
-                      style={{ color: skill.color }}
-                    />
-                    <span className="text-sm font-medium text-center">
-                      {skill.name}
-                    </span>
-                  </div>
-                );
-              })}
+        <AnimatedSection animation="scale" delay={200}>
+          <div className="bg-card border border-border rounded-2xl p-6 md:p-8 min-h-[300px]">
+            <div 
+              className={cn(
+                "transition-all duration-200 ease-in-out",
+                isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100"
+              )}
+            >
+              <h3 className="text-2xl font-bold mb-6 text-center text-tech-cyan">
+                {skillCategories[activeCategory].title}
+              </h3>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                {skillCategories[activeCategory].skills.map((skill, skillIndex) => {
+                  const SkillIcon = skill.icon;
+                  return (
+                    <div
+                      key={skillIndex}
+                      className="flex flex-col items-center gap-3 p-5 bg-surface-light rounded-xl hover:bg-tech-cyan/10 border border-transparent hover:border-tech-cyan transition-all duration-300 cursor-default group"
+                    >
+                      <SkillIcon 
+                        className="h-12 w-12 transition-transform duration-300 group-hover:scale-110" 
+                        style={{ color: skill.color }}
+                      />
+                      <span className="text-sm font-medium text-center">
+                        {skill.name}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );
