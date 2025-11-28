@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import AnimatedSection from "./AnimatedSection";
 
 const projectsData = {
   fr: [
@@ -59,67 +60,72 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 px-4">
       <div className="container max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <AnimatedSection animation="fade-up" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             {t("projects.title")} <span className="text-tech-cyan">{t("projects.subtitle")}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {t("projects.description")}
           </p>
-        </div>
+        </AnimatedSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <Card 
+            <AnimatedSection 
               key={index} 
-              className="bg-card border-border hover:border-tech-cyan/50 transition-all hover:shadow-glow group"
+              animation="fade-up" 
+              delay={index * 150}
             >
-              <div className="p-6 space-y-4">
-                <h3 className="text-2xl font-bold group-hover:text-tech-cyan transition-colors">
-                  {project.title}
-                </h3>
-                
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
+              <Card 
+                className="bg-card border-border hover:border-tech-cyan/50 transition-all hover:shadow-glow group h-full"
+              >
+                <div className="p-6 space-y-4">
+                  <h3 className="text-2xl font-bold group-hover:text-tech-cyan transition-colors">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground leading-relaxed">
+                    {project.description}
+                  </p>
 
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, techIndex) => (
-                    <Badge 
-                      key={techIndex} 
-                      variant="secondary"
-                      className="bg-surface-light hover:bg-tech-cyan hover:text-background transition-colors"
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, techIndex) => (
+                      <Badge 
+                        key={techIndex} 
+                        variant="secondary"
+                        className="bg-surface-light hover:bg-tech-cyan hover:text-background transition-colors"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-3 pt-4">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1 border-tech-cyan/50 hover:bg-tech-cyan hover:text-background"
+                      asChild
                     >
-                      {tech}
-                    </Badge>
-                  ))}
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" />
+                        {t("projects.code")}
+                      </a>
+                    </Button>
+                    <Button 
+                      size="sm" 
+                      className="flex-1 bg-gradient-primary hover:shadow-glow"
+                      asChild
+                    >
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        {t("projects.demo")}
+                      </a>
+                    </Button>
+                  </div>
                 </div>
-
-                <div className="flex gap-3 pt-4">
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="flex-1 border-tech-cyan/50 hover:bg-tech-cyan hover:text-background"
-                    asChild
-                  >
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" />
-                      {t("projects.code")}
-                    </a>
-                  </Button>
-                  <Button 
-                    size="sm" 
-                    className="flex-1 bg-gradient-primary hover:shadow-glow"
-                    asChild
-                  >
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      {t("projects.demo")}
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </Card>
+              </Card>
+            </AnimatedSection>
           ))}
         </div>
       </div>

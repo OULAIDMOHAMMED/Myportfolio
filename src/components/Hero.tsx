@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Phone, Download } from "lucide-react";
 import profileImage from "@/assets/profile.png";
 import { useLanguage } from "@/contexts/LanguageContext";
+import AnimatedSection from "./AnimatedSection";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -9,7 +10,7 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center justify-center px-4 py-20">
       <div className="container max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 text-center md:text-left animate-fade-in">
+          <AnimatedSection animation="fade-left" className="space-y-6 text-center md:text-left">
             <div className="space-y-2">
               <p className="text-tech-cyan text-lg font-medium">{t("hero.greeting")}</p>
               <h1 className="text-5xl md:text-6xl font-bold">
@@ -67,9 +68,9 @@ const Hero = () => {
                 <Phone className="h-6 w-6" />
               </a>
             </div>
-          </div>
+          </AnimatedSection>
 
-          <div className="flex justify-center">
+          <AnimatedSection animation="fade-right" delay={200} className="flex justify-center">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-primary rounded-full blur-3xl opacity-30 animate-pulse"></div>
               <img 
@@ -78,7 +79,7 @@ const Hero = () => {
                 className="relative rounded-2xl w-full max-w-md shadow-card border-2 border-tech-cyan/20"
               />
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
