@@ -4,12 +4,12 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { 
   SiCplusplus, SiPython, SiJavascript, SiTypescript, SiPhp,
-  SiHtml5, SiCss3, SiBootstrap, SiReact, SiNextdotjs, SiNestjs, SiNodedotjs, SiSpringboot,
+  SiHtml5, SiCss3, SiBootstrap, SiReact, SiNestjs, SiNodedotjs, SiSpringboot,
   SiPostgresql, SiMongodb,
-  SiDocker, SiKubernetes
+  SiDocker
 } from "react-icons/si";
 import { TbBrandCSharp, TbSql } from "react-icons/tb";
-import { FaJava, FaDatabase, FaBrain, FaServer, FaRobot, FaCogs } from "react-icons/fa";
+import { FaJava, FaDatabase, FaBrain, FaServer, FaCogs, FaGitAlt, FaLinux } from "react-icons/fa";
 import AnimatedSection from "./AnimatedSection";
 
 const Skills = () => {
@@ -48,7 +48,6 @@ const Skills = () => {
         { name: "CSS3", icon: SiCss3, color: "#1572B6" },
         { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
         { name: "ReactJS", icon: SiReact, color: "#61DAFB" },
-        { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
         { name: "NestJS", icon: SiNestjs, color: "#E0234E" },
         { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
         { name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F" },
@@ -62,7 +61,6 @@ const Skills = () => {
         { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
         { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
         { name: "SQL Server", icon: TbSql, color: "#CC2927" },
-        { name: "ChromaDB", icon: FaDatabase, color: "#FF6F61" },
       ],
     },
     {
@@ -71,10 +69,10 @@ const Skills = () => {
       skills: [
         { name: "Microservices", icon: FaServer, color: "#FF6B6B" },
         { name: "Docker", icon: SiDocker, color: "#2496ED" },
-        { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5" },
+        { name: "RabbitMQ", icon: FaCogs, color: "#FF6600" },
         { name: "RAG", icon: FaBrain, color: "#9B59B6" },
-        { name: "DevOps", icon: FaCogs, color: "#E74C3C" },
-        { name: "AI/ML", icon: FaRobot, color: "#00D4AA" },
+        { name: "Git/GitHub", icon: FaGitAlt, color: "#F05032" },
+        { name: "Linux", icon: FaLinux, color: "#FCC624" },
       ],
     },
   ];

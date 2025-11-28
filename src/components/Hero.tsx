@@ -23,7 +23,7 @@ const Hero = () => {
             
             <p className="text-lg text-muted-foreground leading-relaxed">
               {t("hero.description")}{" "}
-              <span className="text-tech-cyan font-semibold">{t("hero.specialization1")}</span> {t("hero.specialization2") !== "Business Intelligence" ? t("hero.specialization2").toLowerCase() : `et ${t("hero.specialization2")}`}.{" "}
+              <span className="text-tech-cyan font-semibold">{t("hero.specialization1")}</span> {t("hero.and")} {t("hero.specialization2")}.{" "}
               {t("hero.passion")}
             </p>
 
@@ -48,7 +48,7 @@ const Hero = () => {
                 <Linkedin className="h-6 w-6" />
               </a>
               <a 
-                href="https://github.com" 
+                href="https://github.com/OULAIDMOHAMMED" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 bg-surface-light rounded-lg hover:bg-tech-cyan hover:text-background transition-all hover:shadow-glow"
