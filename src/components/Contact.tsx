@@ -93,8 +93,6 @@ const Contact = () => {
                   <h4 className="text-xl font-semibold mb-2">{t("contact.interests")}</h4>
                   <ul className="space-y-2 opacity-90">
                     <li>• {t("contact.backend")}</li>
-                    <li>• {t("contact.microservices")}</li>
-                    <li>• {t("contact.ai")}</li>
                     <li>• {t("contact.devops")}</li>
                   </ul>
                 </div>
