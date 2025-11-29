@@ -7,41 +7,47 @@ const educationData = {
   fr: [
     {
       degree: "Cycle d'Ingénieur en Génie Informatique",
+      institution: "Faculté des Sciences et Techniques d'Errachidia",
       specialization: "Génie Logiciel & Business Intelligence",
-      year: "2022 - 2025",
+      year: "2023 - Présent",
       description: "Formation avancée en développement logiciel, architecture système, intelligence artificielle et analyse de données.",
     },
     {
       degree: "DEUST",
-      specialization: "Informatique",
-      year: "2020 - 2022",
-      description: "Diplôme d'études universitaires scientifiques et techniques en informatique.",
+      institution: "Faculté des Sciences et Techniques d'Errachidia",
+      specialization: "Mathématiques – Informatique – Physique (MIP)",
+      year: "2021 - 2023",
+      description: "Diplôme d'Études Universitaires Scientifiques et Techniques.",
     },
     {
-      degree: "Baccalauréat",
-      specialization: "Sciences",
-      year: "2020",
-      description: "Baccalauréat scientifique avec mention.",
+      degree: "Baccalauréat Sciences Physiques",
+      institution: "Lycée Abdelkrim El Khattabi, Tinghir",
+      specialization: "Sciences Physiques",
+      year: "2021",
+      description: "Baccalauréat scientifique option Sciences Physiques.",
     },
   ],
   en: [
     {
       degree: "Engineering Degree in Computer Science",
+      institution: "Faculty of Sciences and Techniques of Errachidia",
       specialization: "Software Engineering & Business Intelligence",
-      year: "2022 - 2025",
+      year: "2023 - Present",
       description: "Advanced training in software development, system architecture, artificial intelligence and data analysis.",
     },
     {
       degree: "DEUST",
-      specialization: "Computer Science",
-      year: "2020 - 2022",
-      description: "University degree in scientific and technical studies in computer science.",
+      institution: "Faculty of Sciences and Techniques of Errachidia",
+      specialization: "Mathematics – Computer Science – Physics (MIP)",
+      year: "2021 - 2023",
+      description: "University Diploma in Scientific and Technical Studies.",
     },
     {
-      degree: "High School Diploma",
-      specialization: "Sciences",
-      year: "2020",
-      description: "Scientific high school diploma with honors.",
+      degree: "High School Diploma in Physical Sciences",
+      institution: "Abdelkrim El Khattabi High School, Tinghir",
+      specialization: "Physical Sciences",
+      year: "2021",
+      description: "Scientific high school diploma, Physical Sciences option.",
     },
   ],
 };
@@ -83,11 +89,14 @@ const Education = () => {
                           <h3 className="text-2xl font-bold group-hover:text-tech-cyan transition-colors">
                             {edu.degree}
                           </h3>
-                          <p className="text-lg text-muted-foreground font-medium">
+                          <p className="text-lg text-foreground/80 font-medium">
+                            {edu.institution}
+                          </p>
+                          <p className="text-muted-foreground">
                             {edu.specialization}
                           </p>
                         </div>
-                        <span className="text-tech-cyan font-semibold mt-2 md:mt-0">
+                        <span className="text-tech-cyan font-semibold mt-2 md:mt-0 whitespace-nowrap">
                           {edu.year}
                         </span>
                       </div>
