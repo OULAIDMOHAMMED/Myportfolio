@@ -4,7 +4,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { 
   SiCplusplus, SiPython, SiJavascript, SiTypescript, SiPhp,
-  SiHtml5, SiCss3, SiBootstrap, SiReact, SiNestjs, SiNodedotjs, SiSpringboot,
+  SiHtml5, SiCss3, SiBootstrap, SiReact, SiNestjs, SiNodedotjs, SiSpringboot, SiFastapi,
   SiPostgresql, SiMongodb,
   SiDocker
 } from "react-icons/si";
@@ -51,6 +51,7 @@ const Skills = () => {
         { name: "NestJS", icon: SiNestjs, color: "#E0234E" },
         { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
         { name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F" },
+        { name: "FastAPI", icon: SiFastapi, color: "#009688" },
       ],
     },
     {
