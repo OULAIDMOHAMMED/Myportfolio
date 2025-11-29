@@ -16,16 +16,19 @@ const Hero = () => {
               <h1 className="text-5xl md:text-6xl font-bold">
                 Oulaid <span className="text-tech-cyan">Mohammed</span>
               </h1>
-              <h2 className="text-2xl md:text-3xl text-muted-foreground">
+              <h2 className="text-xl md:text-2xl text-tech-cyan font-semibold">
                 {t("hero.title")}
               </h2>
+              <p className="text-lg text-muted-foreground">
+                {t("hero.subtitle")}
+              </p>
             </div>
             
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              {t("hero.description")}{" "}
-              <span className="text-tech-cyan font-semibold">{t("hero.specialization1")}</span> {t("hero.and")} {t("hero.specialization2")}.{" "}
-              {t("hero.passion")}
-            </p>
+            <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
+              <p>{t("hero.description1")}</p>
+              <p>{t("hero.description2")}</p>
+              <p className="text-foreground font-medium">{t("hero.description3")}</p>
+            </div>
 
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <Button size="lg" className="bg-gradient-primary hover:shadow-glow transition-all">

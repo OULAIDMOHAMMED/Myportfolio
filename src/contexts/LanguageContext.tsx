@@ -20,12 +20,11 @@ const translations = {
     
     // Hero
     "hero.greeting": "Bonjour, je suis",
-    "hero.title": "Ingénieur en Génie Informatique",
-    "hero.description": "Étudiant en 3ème année de cycle d'ingénieur, spécialisé en",
-    "hero.specialization1": "Génie Logiciel",
-    "hero.and": "et",
-    "hero.specialization2": "Business Intelligence",
-    "hero.passion": "Passionné par le développement Backend, Full-Stack et l'IA.",
+    "hero.title": "Futur Ingénieur en Génie Informatique",
+    "hero.subtitle": "Étudiant en dernière année du cycle d'ingénieur, spécialisé en Génie Logiciel et Business Intelligence.",
+    "hero.description1": "Développeur Full-Stack Java/Python, je conçois des applications modernes, performantes et sécurisées en utilisant des technologies telles que Spring Boot, Next.js, NestJS, FastAPI et PostgreSQL.",
+    "hero.description2": "Passionné par le DevOps, je travaille avec les environnements Linux, Docker, les architectures microservices et les bonnes pratiques d'ingénierie logicielle afin d'améliorer la qualité et la fiabilité des projets.",
+    "hero.description3": "Je suis motivé par l'innovation, la maîtrise technique et le développement de solutions intelligentes combinant Full-Stack et IA.",
     "hero.contact": "Me Contacter",
     "hero.download": "Télécharger CV",
     
@@ -90,12 +89,11 @@ const translations = {
     
     // Hero
     "hero.greeting": "Hello, I'm",
-    "hero.title": "Software Engineering Graduate",
-    "hero.description": "3rd year engineering student, specialized in",
-    "hero.specialization1": "Software Engineering",
-    "hero.and": "and",
-    "hero.specialization2": "Business Intelligence",
-    "hero.passion": "Passionate about Backend, Full-Stack development and AI.",
+    "hero.title": "Future Computer Engineering Graduate",
+    "hero.subtitle": "Final year engineering student, specialized in Software Engineering and Business Intelligence.",
+    "hero.description1": "Full-Stack Java/Python Developer, I design modern, high-performance and secure applications using technologies such as Spring Boot, Next.js, NestJS, FastAPI and PostgreSQL.",
+    "hero.description2": "Passionate about DevOps, I work with Linux environments, Docker, microservices architectures and software engineering best practices to improve project quality and reliability.",
+    "hero.description3": "I am driven by innovation, technical mastery and developing intelligent solutions combining Full-Stack and AI.",
     "hero.contact": "Contact Me",
     "hero.download": "Download CV",
     
